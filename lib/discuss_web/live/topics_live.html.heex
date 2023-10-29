@@ -1,0 +1,19 @@
+<div id="feed" phx-update="stream" class="flex flex-col gap-2">
+<h4>Topics</h4>
+<div :for={{dom_id, topic} <- @streams.topics} id={dom_id} class="flex justify-between bg-gray-100">
+<.button class="bg-white border"><%= topic.title %></.button>
+<div class="flex justify-between gap-2">
+<.button>Edit</.button>
+<.button phx-click="delete" phx-value-id={topic.id}>Delete</.button>
+</div>
+</div>
+<.modal id="new-topic-modal">
+<h2>Please Click Here to add a Topic</h2>
+<div class="my-5">
+<.link href={~p"/topics/new"} class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Topics</.link>
+</div>
+</.modal>
+<div class="flex justify-end">
+<.button phx-click={show_modal("new-topic-modal")} class="font-bold rounded-full shadow text-3xl">+</.button>
+</div>
+</div>

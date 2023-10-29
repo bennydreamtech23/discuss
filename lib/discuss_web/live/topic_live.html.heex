@@ -1,0 +1,9 @@
+
+<.form for={@form} phx-submit="create" phx-change="validate">
+<div class="justify-center px-28 w-full space-y-4 mb-10">
+<.input field={@form[:title]} placeholder="Enter your title" autocomplete="off" phx-debounce="blur"/>
+<div class="flex justify-end">
+<.button phx-disable-with="Creating ...">Create Topic</.button>
+</div>
+</div>
+</.form>
